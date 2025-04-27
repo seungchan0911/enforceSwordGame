@@ -76,6 +76,7 @@ function enforce() {
                 alert("강화성공")
                 container.innerHTML = ""
                 insertItems(2)
+                enforce()
             } else {
                 alert("강화실패")
                 container.innerHTML = ""
@@ -88,6 +89,7 @@ function enforce() {
                 alert("강화성공")
                 container.innerHTML = ""
                 insertItems(3)
+                enforce()
             } else {
                 alert("강화실패")
                 container.innerHTML = ""
@@ -100,6 +102,7 @@ function enforce() {
                 alert("강화성공")
                 container.innerHTML = ""
                 insertItems(4)
+                enforce()
             } else {
                 alert("강화실패")
                 container.innerHTML = ""
