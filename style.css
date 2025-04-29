@@ -3,6 +3,8 @@
 * {margin: 0; padding: 0; list-style: none; text-decoration: none; box-sizing: border-box; color: inherit; font-family: Galmuri11;}
 
 .container {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +12,9 @@
 
     width: 100vw;
     height: 100vh;
+    
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .frame {
@@ -17,6 +22,10 @@
 
     width: fit-content;
     height: fit-content;
+}
+
+.sword-info {
+    /* height: 100%; */
 }
 
 .left-frame {
@@ -53,7 +62,7 @@
 }
 
 .right-frame h2 {
-    color: rgba(0, 0, 255, 0.75);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .button-group {
@@ -75,6 +84,12 @@
 
 span {
     color: rgba(255, 0, 0, 0.75);
+}
+
+.wallet {
+    position: absolute;
+    right: 25px;
+    top: 25px;
 }
 
 @keyframes swordEffect {

@@ -2,42 +2,51 @@ const items = [
     {
         "title": "나무 검",
         "price": 0,
-        "probability": 50,
-        "img": "default_tool_woodsword.png"
+        "probability": 75,
+        "img": "default_tool_woodsword.png",
+        "grade": 0
     },
     {
         "title": "돌 검",
         "price": 2500,
-        "probability": 25,
-        "img": "default_tool_stonesword.png"
+        "probability": 50,
+        "img": "default_tool_stonesword.png",
+        "grade": 1
     },
     {
         "title": "금 검",
         "price": 15000,
-        "probability": 10,
-        "img": "default_tool_mesesword.png"
+        "probability": 25,
+        "img": "default_tool_mesesword.png",
+        "grade": 2
     },
     {
         "title": "철 검",
         "price": 75000,
-        "probability": 5,
-        "img": "default_tool_steelsword.png"
+        "probability": 10,
+        "img": "default_tool_steelsword.png",
+        "grade": 3
     },
     {
         "title": "다이아몬드 검",
         "price": 250000,
-        "probability": 2.5,
-        "img": "default_tool_steelsword.png"
+        "probability": 5,
+        "img": "default_tool_steelsword.png",
+        "grade": 4
     },
 ]
 
+const swordInfo = document.querySelector(".sword-info")
 const container = document.querySelector(".container")
+let currentItemIndex = 0
+let priceStorage = 0
 
 function insertItems(number) {
+    currentItemIndex = number
     const div = document.createElement("div")
     div.classList.add("frame")
     div.innerHTML = `
-        <div class="left-frame">
+    <div class="left-frame">
         <div class="item"><img src="./img/${items[number].img}" alt=""></div>
         </div>
         <div class="right-frame">
@@ -48,9 +57,9 @@ function insertItems(number) {
                 <div class="button enforce">강화하기</div>
                 <div class="button sell">팔기</div>
             </div>
-        </div>
-    `
-    container.append(div)
+            </div>
+    `   
+    swordInfo.append(div)
 }
 
 insertItems(0)
@@ -61,65 +70,58 @@ function enforce() {
 
     enforceButton.addEventListener("click", () => {
         if (title.textContent == "나무 검") {
-            let call = random(2)
-            if (call === 0) {
-                alert("강화성공")
-                container.innerHTML = ""
-                insertItems(1)
-                enforce()
+            let call = random(4)
+            if (call != 0) {
+                reset(1)
             } else {
                 alert("강화실패")
             }
         } else if (title.textContent == "돌 검") {
-            let call = random(4)
+            let call = random(2)
             if (call === 0) {
-                alert("강화성공")
-                container.innerHTML = ""
-                insertItems(2)
-                enforce()
+                reset(2)
             } else {
                 alert("강화실패")
-                container.innerHTML = ""
-                insertItems(0)
-                enforce()
+                reset(0)
             }
         } else if (title.textContent == "금 검") {
-            let call = random(10)
+            let call = random(4)
             if (call === 0) {
-                alert("강화성공")
-                container.innerHTML = ""
-                insertItems(3)
-                enforce()
+                reset(3)
             } else {
                 alert("강화실패")
-                container.innerHTML = ""
-                insertItems(0)
-                enforce()
+                reset(0)
             }
         } else if (title.textContent == "철 검") {
-            let call = random(20)
+            let call = random(10)
             if (call === 0) {
-                alert("강화성공")
-                container.innerHTML = ""
-                insertItems(4)
-                enforce()
+                reset(4)
             } else {
                 alert("강화실패")
-                container.innerHTML = ""
-                insertItems(0)
-                enforce()
+                reset(0)
             }
         } else if (title.textContent == "다이아몬드 검") {
-            let call = random(20)
-            if (call === 0) {
-                alert("클리어!")
-            } else {
-                alert("강화실패")
-                container.innerHTML = ""
-                insertItems(0)
-                enforce()
-            }
+            
         }
+    })
+
+    function reset(index) {
+        swordInfo.innerHTML = ""
+        insertItems(index)
+        enforce()
+        controlHeightAndWidth()
+    }
+    
+    
+    const sellButton = document.querySelector(".sell")
+    const wallet = document.querySelector(".wallet")
+    const price = items[currentItemIndex].price
+    
+    sellButton.addEventListener("click", () => {
+        reset(0)
+        priceStorage += price
+        console.log(priceStorage)
+        wallet.innerHTML = `${priceStorage.toLocaleString()}원`
     })
 }
 
@@ -128,3 +130,21 @@ enforce()
 function random(max) {
     return Math.floor(Math.random() * max)
 }
+
+
+function controlHeightAndWidth() {
+    const wallet = document.querySelector(".wallet")
+    const leftFrame = document.querySelector(".left-frame")
+    const frame = document.querySelector(".frame")
+    
+    console.log(container.offsetWidth) 
+    if (container.offsetWidth > 500) {
+        leftFrame.style.height = frame.offsetHeight + "px"
+        container.style.width = "fit-content"
+        wallet.style.right = 0
+    } else {
+        frame.style.height = "100%"
+    }
+}
+
+controlHeightAndWidth()
