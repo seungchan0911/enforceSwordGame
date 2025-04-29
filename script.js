@@ -31,9 +31,9 @@ const items = [
         "title": "다이아몬드 검",
         "price": 250000,
         "probability": 5,
-        "img": "default_tool_steelsword.png",
+        "img": "default_tool_diamondsword.png",
         "grade": 4
-    },
+    }
 ]
 
 const swordInfo = document.querySelector(".sword-info")
@@ -138,12 +138,13 @@ function controlHeightAndWidth() {
     const frame = document.querySelector(".frame")
     
     console.log(container.offsetWidth) 
-    if (container.offsetWidth > 500) {
+    if (container.offsetWidth > 450) {
         leftFrame.style.height = frame.offsetHeight + "px"
         container.style.width = "fit-content"
         wallet.style.right = 0
     } else {
         frame.style.height = "100%"
+        frame.style.bottom = 0
     }
 }
 
