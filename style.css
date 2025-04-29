@@ -60,6 +60,7 @@
     height: 100%;
     
     animation: swordEffect 2.5s infinite forwards alternate-reverse ease-in-out;
+    object-fit: cover;
 }
 
 .right-frame h2 {
@@ -91,6 +92,10 @@ span {
     position: absolute;
     right: 25px;
     top: 25px;
+}
+
+.loading {
+    background-color: red;
 }
 
 @keyframes swordEffect {
