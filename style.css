@@ -15,6 +15,7 @@
     
     margin: 0 auto;
     overflow: hidden;
+    transition: .3s;
 }
 
 .frame {
