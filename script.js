@@ -72,9 +72,11 @@ function enforce() {
         if (title.textContent == "나무 검") {
             let call = random(4)
             if (call != 0) {
+                loadingEffect()
                 reset(1)
             } else {
                 alert("강화실패")
+                reset(0)
             }
         } else if (title.textContent == "돌 검") {
             let call = random(2)
@@ -105,11 +107,20 @@ function enforce() {
         }
     })
 
+    function loadingEffect() {
+        container.style.opacity = 0.75
+        
+        setTimeout(() => {
+            container.style.opacity = 1
+        }, 300);
+    }
+    
     function reset(index) {
         swordInfo.innerHTML = ""
         insertItems(index)
         enforce()
         controlHeightAndWidth()
+        loadingEffect()
     }
     
     
