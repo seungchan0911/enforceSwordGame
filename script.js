@@ -1,3 +1,11 @@
+const themes = {
+    basic:    ["#fff", "rgba(0, 0, 0, 0.125)", "#000", "#000", "red", ""],
+    pink:     ["rgb(255, 237, 250)", "rgb(255, 184, 224)", "rgb(190, 89, 133)", "rgb(190, 89, 133)", "red", "#fff"],
+    retro:    ["rgb(239, 238, 234)", "rgb(254, 119, 67)", "rgb(39, 63, 79)", "rgb(0, 0, 0)", "darkred", ""],
+    space:    ["#0f0f3d", "#e0e0ff", "", "#ffaa00", "red", "#fff"],
+    rainbow:  ["rgba(0, 0, 0, 0.0625)", "rgb(89, 213, 224)", "rgb(244, 83, 138)", "rgb(250, 163, 0)", "red", ""]
+}
+
 const items = [
     {
         "title": "나무 검",
@@ -222,14 +230,6 @@ function colorPalette(palette1, palette2, palette3, palette4, palette5, palette6
     color6.forEach(colors6 => {
         colors6.style.color = palette6
     })
-}
-
-const themes = {
-    basic:    ["#fff", "rgba(0, 0, 0, 0.125)", "#000", "#000", "red", ""],
-    pink:     ["rgb(255, 237, 250)", "rgb(255, 184, 224)", "rgb(190, 89, 133)", "rgb(190, 89, 133)", "red", "#fff"],
-    retro:    ["rgb(239, 238, 234)", "rgb(254, 119, 67)", "rgb(39, 63, 79)", "rgb(0, 0, 0)", "darkred", ""],
-    space:    ["#0f0f3d", "#e0e0ff", "", "#ffaa00", "red", "#fff"],
-    rainbow:  ["rgba(0, 0, 0, 0.0625)", "rgb(89, 213, 224)", "rgb(244, 83, 138)", "rgb(250, 163, 0)", "red", ""]
 }
 
 function colorPaletteByName(name) {
