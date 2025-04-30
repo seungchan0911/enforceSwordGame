@@ -129,6 +129,14 @@ function enforce() {
         enforce()
         controlHeightAndWidth()
         loadingEffect()
+
+        colorPalette(
+            currentPalette.palette1,
+            currentPalette.palette2,
+            currentPalette.palette3,
+            currentPalette.palette4,
+            currentPalette.palette5
+        )
     }
     
     
