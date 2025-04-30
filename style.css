@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
 
-    width: 100vw;
+    width: fit-content;
     height: 100vh;
     
     margin: 0 auto;
@@ -84,14 +84,62 @@
     cursor: pointer;
 }
 
-span {
-    color: rgba(255, 0, 0, 0.75);
-}
-
 .wallet {
     position: absolute;
-    right: 25px;
+    right: 0;
     top: 25px;
+
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.125);
+}
+
+.theme {
+    position: absolute;
+    left: 0;
+    top: 25px;
+    
+    padding: 10px 15px;
+    
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+
+#theme:checked ~ .theme-popup {
+    display: flex;
+}
+
+#theme:checked ~ .close-popup {
+    display: block;
+}
+
+.theme-popup {
+    position: absolute;
+    left: 0;
+    top: 25px;
+
+    display: flex;
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 150px;
+    padding: 10px 15px;
+
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+
+    z-index: 100;
+}
+
+.close-popup {
+    position: absolute;
+
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
 }
 
 .loading {
@@ -117,7 +165,7 @@ span {
     .left-frame {
         width: calc(100vw - 50px);
     }
-
+    
     .button-group {
         justify-content: space-between;
     }

@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="/img/default_tool_diamondsword.png">
 </head>
-<body>
+<body class="color1">
     <div class="container">
+        <input type="checkbox" id="theme" hidden>
+        <label for="theme"><div class="theme color4">테마 변경</div></label>
+        <div class="theme-popup color4">
+            <div class="theme-btn">기본테마</div>
+            <div class="theme-btn">Retro</div>
+            <div class="theme-btn">Space</div>
+            <div class="theme-btn">Rainbow</div>
+            <div class="theme-btn">Pink</div>
+        </div>
+        <label for="theme" class="close-popup"></label>
         <div class="sword-info"></div>
-        <div class="wallet">0원</div>
+        <div class="wallet color6">0원</div>
     </div>
 </body>
 <script src="./script.js"></script>
