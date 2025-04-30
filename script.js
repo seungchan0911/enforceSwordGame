@@ -82,9 +82,6 @@ function enforce() {
             if (call != 0) {
                 loadingEffect()
                 reset(1)
-            } else if (call === 0) {
-                loadingEffect()
-                reset(5)
             } else {
                 alert("강화실패")
                 reset(0)
@@ -144,15 +141,26 @@ function enforce() {
         priceStorage += price
         console.log(priceStorage)
         wallet.innerHTML = `${priceStorage.toLocaleString()}원`
+        
+        localStorage.setItem("wallet", priceStorage)
     })
 }
 
 enforce()
 
+window.addEventListener("DOMContentLoaded", () => {
+    const wallet = document.querySelector(".wallet")
+    const saved = localStorage.getItem("wallet")
+
+    if (saved) {
+        priceStorage = parseInt(saved)
+        wallet.innerHTML = `${priceStorage.toLocaleString()}원`
+    }
+})
+
 function random(max) {
     return Math.floor(Math.random() * max)
 }
-
 
 function controlHeightAndWidth() {
     const wallet = document.querySelector(".wallet")
