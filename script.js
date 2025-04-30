@@ -80,7 +80,6 @@ function enforce() {
             let call = random(4)
             console.log(call)
             if (call != 0) {
-                loadingEffect()
                 reset(1)
             } else {
                 alert("강화실패")
@@ -114,22 +113,12 @@ function enforce() {
             
         }
     })
-
-    function loadingEffect() {
-        container.style.opacity = 0.75
-        
-        setTimeout(() => {
-            container.style.opacity = 1
-        }, 300);
-    }
     
     function reset(index) {
         swordInfo.innerHTML = ""
         insertItems(index)
         enforce()
         controlHeightAndWidth()
-        loadingEffect()
-
         colorPalette(
             currentPalette.palette1,
             currentPalette.palette2,
@@ -152,6 +141,21 @@ function enforce() {
         
         localStorage.setItem("wallet", priceStorage)
     })
+
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme) {
+        const theme = JSON.parse(savedTheme)
+        currentPalette = theme
+        colorPalette(
+            theme.palette1,
+            theme.palette2,
+            theme.palette3,
+            theme.palette4,
+            theme.palette5
+        )
+    } else {
+        colorPaletteByName("basic")
+    }
 }
 
 enforce()
@@ -223,7 +227,7 @@ function colorPalette(palette1, palette2, palette3, palette4, palette5, palette6
 const themes = {
     basic:    ["#fff", "rgba(0, 0, 0, 0.125)", "#000", "#000", "red", ""],
     pink:     ["rgb(255, 237, 250)", "rgb(255, 184, 224)", "rgb(190, 89, 133)", "rgb(190, 89, 133)", "red", "#fff"],
-    retro:    ["rgb(239, 238, 234)", "#FE7743", "rgb(39, 63, 79)", "rgb(0, 0, 0)", "red", ""],
+    retro:    ["rgb(239, 238, 234)", "rgb(254, 119, 67)", "rgb(39, 63, 79)", "rgb(0, 0, 0)", "darkred", ""],
     space:    ["#0f0f3d", "#e0e0ff", "", "#ffaa00", "red", "#fff"],
     rainbow:  ["rgba(0, 0, 0, 0.0625)", "rgb(89, 213, 224)", "rgb(244, 83, 138)", "rgb(250, 163, 0)", "red", ""]
 }
