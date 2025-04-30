@@ -105,6 +105,18 @@
     cursor: pointer;
 }
 
+.refresh {
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+    
+    padding: 10px 15px;
+    
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+}
+
 #theme:checked ~ .theme-popup {
     display: flex;
 }

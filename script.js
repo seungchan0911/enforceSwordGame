@@ -1,9 +1,9 @@
 const themes = {
-    basic:    ["#fff", "rgba(0, 0, 0, 0.125)", "#000", "#000", "red", ""],
-    pink:     ["rgb(255, 237, 250)", "rgb(255, 184, 224)", "rgb(190, 89, 133)", "rgb(190, 89, 133)", "red", "#fff"],
-    retro:    ["rgb(239, 238, 234)", "rgb(254, 119, 67)", "rgb(39, 63, 79)", "rgb(0, 0, 0)", "darkred", ""],
-    space:    ["#0f0f3d", "#e0e0ff", "", "#ffaa00", "red", "#fff"],
-    rainbow:  ["rgba(0, 0, 0, 0.0625)", "rgb(89, 213, 224)", "rgb(244, 83, 138)", "rgb(250, 163, 0)", "red", ""]
+    basic: ["#fff", "rgba(0, 0, 0, 0.125)", "#000", "#000", "red", ""],
+    pink: ["rgb(255, 237, 250)", "rgb(255, 184, 224)", "rgb(190, 89, 133)", "rgb(190, 89, 133)", "red", "#fff"],
+    retro: ["rgb(239, 238, 234)", "rgb(254, 119, 67)", "rgb(39, 63, 79)", "rgb(0, 0, 0)", "darkred", ""],
+    space: ["#0f0f3d", "#e0e0ff", "", "#ffaa00", "red", "#fff"],
+    rainbow: ["rgba(0, 0, 0, 0.0625)", "rgb(89, 213, 224)", "rgb(244, 83, 138)", "rgb(250, 163, 0)", "red", ""]
 }
 
 const items = [
@@ -260,3 +260,18 @@ function changePalette() {
     if (themeBtn[3]) themeBtn[3].addEventListener("click", () => colorPaletteByName("rainbow"))
     if (themeBtn[4]) themeBtn[4].addEventListener("click", () => colorPaletteByName("pink"))
 }
+
+function refresh() {
+    const refreshBtn = document.querySelector(".refresh")
+
+    refreshBtn.addEventListener("click", () => {
+        const alert = confirm("정말 초기화하시겠습니까?")
+        if (alert) {
+            localStorage.removeItem("theme")
+            localStorage.removeItem("wallet")
+            location.reload(true);
+        }
+    })
+}
+
+refresh()
