@@ -7,13 +7,13 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 
     width: fit-content;
-    height: 100vh;
+    height: calc(100vh - 50px);
     
-    margin: 0 auto;
+    margin: 25px;
     overflow: hidden;
     transition: .3s;
 }
@@ -87,7 +87,7 @@
 .wallet {
     position: absolute;
     right: 0;
-    top: 25px;
+    top: 0;
 
     padding: 10px 15px;
     background-color: rgba(0, 0, 0, 0.125);
@@ -96,7 +96,7 @@
 .theme {
     position: absolute;
     left: 0;
-    top: 25px;
+    top: 0;
     
     padding: 10px 15px;
     
@@ -106,10 +106,16 @@
 }
 
 .refresh {
-    position: absolute;
-    left: 0;
-    bottom: 25px;
+    width: fit-content;
+    padding: 10px 15px;
     
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+}
+
+.information {
+    width: fit-content;
     padding: 10px 15px;
     
     background-color: black;
@@ -121,14 +127,22 @@
     display: flex;
 }
 
-#theme:checked ~ .close-popup {
+#theme:checked ~ .theme-close-popup {
+    display: block;
+}
+
+#information:checked ~ .information-popup {
+    display: flex;
+}
+
+#information:checked ~ .information-close-popup {
     display: block;
 }
 
 .theme-popup {
     position: absolute;
     left: 0;
-    top: 25px;
+    top: 0;
 
     display: flex;
     display: none;
@@ -145,7 +159,37 @@
     z-index: 100;
 }
 
-.close-popup {
+.information-popup {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+
+    display: flex;
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 15px;
+
+    transform: translate(-50%, 50%);
+    background-color: black;
+    color: #fff;
+
+    z-index: 100;
+}
+
+.theme-close-popup {
+    position: absolute;
+
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.information-close-popup {
     position: absolute;
 
     display: none;
@@ -156,6 +200,24 @@
 
 .loading {
     background-color: red;
+}
+
+.bottom-group {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.bottom-bottom-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-group-void {
+    /* display: none; */
+
+    padding: 10px;
+    color: rgba(0, 0, 0, 0);
 }
 
 @keyframes swordEffect {
@@ -180,5 +242,16 @@
     
     .button-group {
         justify-content: space-between;
+    }
+}
+
+@media (min-width: 450px) {
+    .container {
+        margin: 25px auto;
+    }
+
+    .bottom-group {
+        justify-content: space-between;
+        height: 100vh;
     }
 }

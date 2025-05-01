@@ -11,58 +11,44 @@ const items = [
         "title": "나무 검",
         "price": 0,
         "probability": 75,
-        "img": "default_tool_woodsword.png",
-        "grade": 0
+        "img": "default_tool_woodsword.png"
     },
     {
         "title": "돌 검",
         "price": 2500,
         "probability": 50,
-        "img": "default_tool_stonesword.png",
-        "grade": 1
+        "img": "default_tool_stonesword.png"
     },
     {
         "title": "금 검",
         "price": 15000,
         "probability": 25,
-        "img": "default_tool_mesesword.png",
-        "grade": 2
+        "img": "default_tool_mesesword.png"
     },
     {
         "title": "철 검",
         "price": 75000,
         "probability": 10,
-        "img": "default_tool_steelsword.png",
-        "grade": 3
+        "img": "default_tool_steelsword.png"
     },
     {
         "title": "다이아몬드 검",
         "price": 250000,
         "probability": 50,
-        "img": "default_tool_diamondsword.png",
-        "grade": 4
+        "img": "default_tool_diamondsword.png"
     },
     {
         "title": "네더라이트 검",
         "price": 360000,
         "probability": 25,
-        "img": "default_tool_netheritesword.png",
-        "grade": 5
+        "img": "default_tool_netheritesword.png"
     },
     {
         "title": "유리의 검",
         "price": 720000,
         "probability": 0,
-        "img": "default_tool_glasssword.png",
-        "grade": 6
-    },
-    {
-        "title": "병신",
-        "price": 0,
-        "probability": 0,
-        "img": "KakaoTalk_Photo_2025-04-29-11-07-49.jpeg",
-        "grade": 0
-    },
+        "img": "default_tool_glasssword.png"
+    }
 ]
 
 const swordInfo = document.querySelector(".sword-info")
