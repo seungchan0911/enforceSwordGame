@@ -233,7 +233,6 @@
 @media (max-width: 450px) {
     .frame {
         flex-direction: column;
-        gap: 50px;
     }
 
     .left-frame {
