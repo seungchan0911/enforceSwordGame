@@ -38,17 +38,31 @@ const items = [
     {
         "title": "다이아몬드 검",
         "price": 250000,
-        "probability": 5,
+        "probability": 50,
         "img": "default_tool_diamondsword.png",
         "grade": 4
+    },
+    {
+        "title": "네더라이트 검",
+        "price": 360000,
+        "probability": 25,
+        "img": "default_tool_netheritesword.png",
+        "grade": 5
+    },
+    {
+        "title": "유리의 검",
+        "price": 720000,
+        "probability": 0,
+        "img": "default_tool_glasssword.png",
+        "grade": 6
     },
     {
         "title": "병신",
         "price": 0,
         "probability": 0,
         "img": "KakaoTalk_Photo_2025-04-29-11-07-49.jpeg",
-        "grade": 5
-    }
+        "grade": 0
+    },
 ]
 
 const swordInfo = document.querySelector(".sword-info")
@@ -86,7 +100,6 @@ function enforce() {
     enforceButton.addEventListener("click", () => {
         if (title.textContent == "나무 검") {
             let call = random(4)
-            console.log(call)
             if (call != 0) {
                 reset(1)
             } else {
@@ -118,7 +131,22 @@ function enforce() {
                 reset(0)
             }
         } else if (title.textContent == "다이아몬드 검") {
-            
+            let call = random(2)
+            if (call === 0) {
+                reset(5)
+            } else {
+                alert("강화실패")
+                reset(0)
+            }
+        } else if (title.textContent == "네더라이트 검") {
+            let call = random(4)
+            if (call === 0) {
+                reset(6)
+            } else {
+                alert("강화실패")
+                reset(0)
+            }
+        } else if (title.textContent == "유리의 검") {
         }
     })
     
