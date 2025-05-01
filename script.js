@@ -186,7 +186,8 @@ function enforce() {
             theme.palette2,
             theme.palette3,
             theme.palette4,
-            theme.palette5
+            theme.palette5,
+            theme.palette6
         )
     } else {
         colorPaletteByName("basic")
@@ -269,6 +270,7 @@ function colorPaletteByName(name) {
         palette3: selected[2],
         palette4: selected[3],
         palette5: selected[4],
+        palette6: selected[5],
         name: name
     }
 
