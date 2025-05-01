@@ -11,7 +11,7 @@
     align-items: center;
 
     width: fit-content;
-    height: calc(100svh - 50px);
+    height: calc(100vh - 50px);
     
     margin: 25px;
     overflow: hidden;
@@ -233,6 +233,11 @@
 @media (max-width: 450px) {
     .frame {
         flex-direction: column;
+        gap: 25px;
+    }
+
+    .right-frame {
+        padding: 25px;
     }
 
     .left-frame {
