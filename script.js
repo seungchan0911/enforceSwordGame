@@ -183,14 +183,13 @@ function enforce() {
     const wallet = document.querySelector(".wallet")
     const price = items[currentItemIndex].price
     
-    sellButton.addEventListener("click", () => {
+    sellButton.onclick = () => {
         reset(0)
         priceStorage += price
         console.log(priceStorage)
         wallet.innerHTML = `${priceStorage.toLocaleString()}원`
-        
         localStorage.setItem("wallet", priceStorage)
-    })
+    }
 
     const savedTheme = localStorage.getItem("theme")
     if (savedTheme) {
