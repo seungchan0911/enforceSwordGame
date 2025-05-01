@@ -93,11 +93,26 @@ function insertItems(number) {
 
 insertItems(0)
 
+function updateItemInfo(index) {
+    currentItemIndex = index
+    const item = items[index]
+
+    const itemImg = document.querySelector(".item img")
+    const title = document.querySelector("h1.color3")
+    const price = document.querySelector("h2")
+    const probability = document.querySelector("h3 .color5")
+
+    itemImg.src = `./img/${item.img}`
+    title.textContent = item.title
+    price.textContent = `${item.price.toLocaleString()}원`
+    probability.textContent = item.probability
+}
+
 function enforce() {
     const enforceButton = document.querySelector(".enforce")
     const title = document.querySelector("h1")
 
-    enforceButton.addEventListener("click", () => {
+    enforceButton.onclick = () => {
         if (title.textContent == "나무 검") {
             let call = random(4)
             if (call != 0) {
@@ -148,11 +163,10 @@ function enforce() {
             }
         } else if (title.textContent == "유리의 검") {
         }
-    })
+    }
     
     function reset(index) {
-        swordInfo.innerHTML = ""
-        insertItems(index)
+        updateItemInfo(index)
         enforce()
         controlHeightAndWidth()
         colorPalette(
